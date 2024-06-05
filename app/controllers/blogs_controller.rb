@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user! 
+
   def index
     blogs = Blog.all
     render json:blogs 
@@ -42,4 +44,11 @@ class BlogsController < ApplicationController
   def blog_params
     params.permit(:title,:body,:category_id)
   end
+
+  protected 
+    def authenticate_user!
+      unless user_signed_in?
+        render json: { error: 'You need to sign in or sign up before continuing.' }, status: :unauthorized
+      end
+    end
 end

@@ -19,7 +19,13 @@ gem 'jwt', '~> 2.5'
 gem 'rack-cors'
 
 gem 'devise'
+gem 'byebug'
+gem 'devise-jwt'
 
+gem 'jsonapi-serializer'
+
+gem 'letter_opener', group: :development
+  
 gem 'active_model_serializers', '~> 0.10.12'
 
 # Use the Puma web server [https://github.com/puma/puma]
